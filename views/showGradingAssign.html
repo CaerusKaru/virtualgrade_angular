@@ -1,0 +1,15 @@
+<div ng-cloak="">
+  <md-content class="md-padding" style="margin-top: -15px;">
+    <md-nav-bar md-theme="default" md-selected-nav-item="currentNavItem" nav-bar-aria-label="assignments for grading"
+                md-no-ink="true">
+      <span class="md-padding">Select an assignment:</span>
+      <md-nav-item ng-repeat="assign in assignments | orderBy" md-nav-sref=".assign({assign: '{{assign}}'})"
+                   name="{{assign}}">
+        {{assign}}
+      </md-nav-item>
+      <span class="md-padding" ng-show="assignments.length === 0">None available</span>
+    </md-nav-bar>
+  </md-content>
+</div>
+
+<div ui-view flex layout="row"> </div>

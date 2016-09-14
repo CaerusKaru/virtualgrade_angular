@@ -1,0 +1,79 @@
+<div class="md-padding" layout-gt-sm="row" layout="column" md-theme="default" flex>
+  <div flex-gt-sm="33.33" flex layout="column">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <span>Students</span>
+      </div>
+    </md-toolbar>
+    <md-content>
+      <md-list flex>
+        <md-list-item ng-show="random" style="border-bottom: 1px solid gray;">
+          <md-button class="md-raised md-primary" md-no-ink>
+            Hit Me!
+          </md-button>
+        </md-list-item>
+        <md-list-item style="border-bottom: .5px solid gray; height: 68px; overflow-y: hidden;" ng-show="!random">
+          <md-input-container md-no-float class="md-block" style="position: relative; top: 15px;">
+            <input type="text" ng-model="searchStudents" placeholder="Search by UTLN" value="">
+          </md-input-container>
+        </md-list-item>
+        <md-list-item style="border-bottom: .5px solid gray;" ng-click="submit(student)" ng-disabled="random" md-no-ink
+                      ng-repeat="student in students | filter: searchStudents">
+          <div class="md-list-item-text" layout="column">
+            <p>{{student}}</p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div flex-gt-sm="33.33" flex layout="column">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <span>In Progress</span>
+      </div>
+    </md-toolbar>
+    <md-content>
+      <md-list flex>
+        <md-list-item style="border-bottom: .5px solid gray; height: 68px; overflow-y: hidden;" ng-disabled="random">
+          <md-input-container md-no-float class="md-block" style="position: relative; top: 15px;">
+            <input type="text" ng-model="searchInp" placeholder="Search by UTLN" value="">
+          </md-input-container>
+        </md-list-item>
+        <md-list-item style="border-bottom: 1px solid gray;" ng-click="submit(inp)" md-no-ink
+                      ng-repeat="inp in inps | filter: searchInp">
+          <div class="md-list-item-text" layout="column">
+            <p>{{inp}}</p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div flex-gt-sm="33.33" flex layout="column">
+    <md-toolbar layout="row">
+      <div class="md-toolbar-tools">
+        <span>Completed</span>
+      </div>
+    </md-toolbar>
+    <md-content>
+      <md-list flex>
+        <md-list-item style="border-bottom: .5px solid gray; height: 68px; overflow-y: hidden;" ng-disabled="random">
+          <md-input-container md-no-float class="md-block" style="position: relative; top: 15px;">
+            <input type="text" ng-model="searchCom" placeholder="Search by UTLN" value="">
+          </md-input-container>
+        </md-list-item>
+        <md-list-item style="border-bottom: 1px solid gray;" ng-click="submit(com)" md-no-ink
+                      ng-repeat="com in coms | filter: searchCom">
+          <div class="md-list-item-text" layout="column">
+            <p>{{com}}</p>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+</div>

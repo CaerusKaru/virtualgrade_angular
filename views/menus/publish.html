@@ -1,0 +1,17 @@
+<div layout-fill="" flex ng-controller="PublishCtrl">
+  <md-list layout="column" flex>
+    <md-list-item layout="row" flex ng-repeat="page in pages">
+      <div class="md-list-item-text" layout-padding>
+        <p>{{page.name}}</p>
+      </div>
+      <md-switch ng-model="page.publish" md-no-ink ng-change="publish(page.name, page.publish)"
+                 aria-label="Publish {{page.name}}">
+        Published
+      </md-switch>
+      <md-switch ng-model="page.publishCom" md-no-ink ng-change="pubCom(page.name, page.publishCom)"
+                 aria-label="Publish comments for {{page.name}}">
+        Comments
+      </md-switch>
+    </md-list-item>
+  </md-list>
+</div>

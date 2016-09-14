@@ -1,0 +1,86 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>Virtual Grade</title>
+  <base href="/"/>
+  <!--    <base href="/~aplume01/virtualgrade/" />-->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <!-- endbuild -->
+</head>
+<body ng-app="virtualGrade" layout="column" class="gradingModal">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<div class="container" flex layout="column">
+  <div ui-view="" flex layout="column"></div>
+</div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/angular-ui-sortable/sortable.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+<script src="scripts/app.js"></script>
+
+<script src="scripts/services/startUpData.js"></script>
+<script src="scripts/services/retrieveGrades.js"></script>
+<script src="scripts/services/retrieveGrading.js"></script>
+<script src="scripts/services/retrieveStudents.js"></script>
+<script src="scripts/services/publishData.js"></script>
+<script src="scripts/services/createPage.js"></script>
+<script src="scripts/services/PDFService.js"></script>
+
+<script src="scripts/controllers/nav.js"></script>
+<script src="scripts/controllers/grades.js"></script>
+<script src="scripts/controllers/grading.js"></script>
+<script src="scripts/controllers/admin.js"></script>
+<script src="scripts/controllers/showGrades.js"></script>
+<script src="scripts/controllers/showGrading.js"></script>
+<script src="scripts/controllers/gradingAssign.js"></script>
+<script src="scripts/controllers/adminMenu.js"></script>
+<script src="scripts/controllers/publish.js"></script>
+<script src="scripts/controllers/scorecard.js"></script>
+<script src="scripts/controllers/pdf.js"></script>
+
+<script src="scripts/directives/scorecardLanding.js"></script>
+<script src="scripts/directives/pdfLanding.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/directives/svgWrapper.js"></script>
+<script src="scripts/directives/svgLine.js"></script>
+<script src="scripts/directives/svgText.js"></script>
+<!-- endbuild -->
+</body>
+</html>

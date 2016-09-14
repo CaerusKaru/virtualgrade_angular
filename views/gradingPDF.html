@@ -1,0 +1,30 @@
+<div ng-cloak="" class="md-padding" layout="row" md-theme="default" style="height: 50px;">
+  <div style="position: relative; right: -33px;">
+    <p><b>Page</b></p>
+  </div>
+  <div style="position: relative; right: -205px;">
+    <p><b>Progress</b></p>
+  </div>
+</div>
+<div ng-repeat="page in pages | orderBy:'num'" ng-cloak="" class="md-padding" layout="row" md-theme="default"
+     style="height: 50px;">
+  <div flex>
+    <md-button class="md-raised md-primary" md-theme="default" ng-click="submit('', page.num)" md-no-ink>
+      {{page.num}}
+    </md-button>
+  </div>
+  <div flex layout="column">
+    <md-progress-linear style="position: relative; left: -95px; bottom: -20px;" class="md-padding" md-mode="determinate"
+                        value="{{page.progress}}"></md-progress-linear>
+  </div>
+  <div flex>
+    <md-input-container style="position: relative; left: -10px; top: -10px;" md-no-float class="md-block">
+      <input type="text" placeholder="Search by UTLN" ng-model="page.searchName" value="{{page.searchName}}">
+    </md-input-container>
+  </div>
+  <div flex>
+    <md-button class="md-raised md-primary" md-no-ink ng-click="submit(page.searchName, page.num)">
+      Search
+    </md-button>
+  </div>
+</div>

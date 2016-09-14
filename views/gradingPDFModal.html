@@ -1,0 +1,98 @@
+<md-dialog aria-label="grading dialog popup" ng-init="init()">
+  <md-dialog-content flex layout="row">
+    <div class="pdf-wrap" flex layout="column" layout-align="center center">
+      <svg-wrapper flex layout="column" ng-mousedown="clickDown($event)" ng-mouseup="clickUp($event)"
+                   ng-mousemove="clickMove($event)"></svg-wrapper>
+      <div id="cursor"></div>
+    </div>
+    <md-divider></md-divider>
+    <div class="md-padding" layout="column">
+      <div id="art-options" class="md-padding">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="art options">
+          <md-nav-item md-nav-click="changeMode('draw')" name="draw">Draw</md-nav-item>
+          <md-nav-item md-nav-click="changeMode('text')" name="text">Text</md-nav-item>
+          <md-nav-item md-nav-click="changeMode('drag')" name="drag">Drag</md-nav-item>
+          <md-nav-item md-nav-click="changeMode('select')" name="select">Select</md-nav-item>
+        </md-nav-bar>
+        <br>
+        <div id="draw-color" ng-show="currentNavItem==='draw'" layout="row">
+          <md-input-container>
+            <label>Size</label>
+            <input ng-model="cursorSize" min="1" type="number">
+          </md-input-container>
+          <md-input-container>
+            <label>Color</label>
+            <md-select ng-model="cursorColor" id="color-list">
+              <md-option value="#000000" selected>Black</md-option>
+              <md-option value="#0000ff">Blue</md-option>
+              <md-option value="#008000">Green</md-option>
+              <md-option value="#ff0000">Red</md-option>
+              <md-option value="#ffd700">Yellow</md-option>
+              <md-option value="#ffffff">White</md-option>
+            </md-select>
+          </md-input-container>
+          <input type="color" ng-model="cursorColor">
+        </div>
+        <div layout="row" id="font-color" ng-show="currentNavItem==='text'">
+          <md-input-container>
+            <label>Size</label>
+            <input ng-model="fontSize" min="1" type="number">
+          </md-input-container>
+          <md-input-container>
+            <label>Color</label>
+            <md-select ng-model="textColor" id="color-list">
+              <md-option value="#000000" selected>Black</md-option>
+              <md-option value="#0000ff">Blue</md-option>
+              <md-option value="#008000">Green</md-option>
+              <md-option value="#ff0000">Red</md-option>
+              <md-option value="#ffd700">Yellow</md-option>
+              <md-option value="#ffffff">White</md-option>
+            </md-select>
+          </md-input-container>
+          <input type="color" ng-model="textColor">
+        </div>
+      </div>
+      <md-divider></md-divider>
+      <div id="change-options" class="md-padding">
+        <md-button ng-click="undo()" class="md-raised" md-no-ink>Undo</md-button>
+        <md-button ng-click="clear('all')" class="md-raised" md-no-ink>Clear All</md-button>
+        <md-button ng-click="clear('text')" class="md-raised" md-no-ink>Clear Text</md-button>
+        <md-button ng-click="clear('lines')" class="md-raised" md-no-ink>Clear Lines</md-button>
+      </div>
+      <md-divider></md-divider>
+      <div id="scoring" class="md-padding">
+        <span id="course-num">Course: {{course}}</span>
+        <br>
+        <span id="assign-name">Assignment: {{assign}}</span>
+        <br>
+        <span id="page-num">Page: {{page}}</span>
+        <br>
+        <span id="student-name">UTLN: {{student}}</span>
+        <br>
+        <!-- scoring stuff here! -->
+      </div>
+      <md-divider></md-divider>
+      <div id="search-options" class="md-padding">
+        <label for="student-search">Search for student by UTLN</label>
+        <input type="text" id="student-search" ng-model="searchStudent">
+        <md-button ng-click="search()" class="md-raised" md-no-ink>Search</md-button>
+        <br>
+        <label for="page-search">Go to page</label>
+        <md-button ng-repeat="num in pagesArray() track by $index" ng-click="searchPage($index+1)" class="md-raised"
+                   md-no-ink>{{$index+1}}
+        </md-button>
+        <br>
+      </div>
+      <md-divider></md-divider>
+      <div id="save-options" class="md-padding">
+        <md-button ng-click="save()" class="md-raised" md-no-ink>Save</md-button>
+        <br>
+        <md-button ng-click="next(true)" class="md-raised" md-no-ink>Save and Next</md-button>
+        <md-button ng-click="close(true)" class="md-raised" md-no-ink>Save and Close</md-button>
+        <br>
+        <md-button ng-click="next(false)" class="md-raised" md-no-ink>Skip w/o saving</md-button>
+        <md-button ng-click="close(false)" class="md-raised" md-no-ink>Exit w/o saving</md-button>
+      </div>
+    </div>
+  </md-dialog-content>
+</md-dialog>

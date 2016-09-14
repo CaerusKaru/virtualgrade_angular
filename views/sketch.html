@@ -1,0 +1,95 @@
+<div id="console">
+  <svg-wrap></svg-wrap>
+  <div id="panel">
+    <div id="artOptions">
+      <input id="draw" type="button" onclick="draw()" value="draw">
+      <input id="text" type="button" onclick="text()" value="text">
+      <input id="drag" type="button" onclick="drag()" value="drag">
+      <input type="button" onclick="selectElements()" value="select">
+      <br>
+
+      <span id="drawColor">
+	<span id="drawWidth">Width: <input id="width" type="number" min="1" value="5" style="width:55px" oninput="radius=this.value/2;document.getElementById(\'cursor\').style.width=this.value+\'px\';document.getElementById(\'cursor\').style.height=this.value+\'px\\
+   '"></span>
+	<select onchange="document.getElementById(\'color\').value=document.getElementById(\'cursor\').style.background=brush=t\
+			  his.value" id="colorList">
+	  <option value="#000000" selected>Black</option>
+	  <option value="#0000ff">Blue</option>
+	  <option value="#008000">Green</option>
+	  <option value="#ff0000">Red</option>
+	  <option value="#ffd700">Yellow</option>
+	  <option value="#ffffff">White</option>
+	</select>
+	<input id="color" type="color" value="#000000" style="width:75px;height:32px;"
+         onchange="document.getElementById(\'cursor\').style.background=brush=this.value;">
+      </span>
+      <span id="fontColor">
+	<span id="fontSize">Text size: <input id="fontsize" type="number" min="8" value="12" style="width:55px"
+                                        oninput="setFontSize(this.value)"></span>
+	<select onchange="document.getElementById(\'fontColor\').value=fontColor=this.value" id="fontColorList">
+	  <option value="#000000" selected>Black</option>
+	  <option value="#0000ff">Blue</option>
+	  <option value="#008000">Green</option>
+	  <option value="#ff0000">Red</option>
+	  <option value="#ffd700">Yellow</option>
+	  <option value="#ffffff">White</option>
+	</select>
+	<input id="fontColorSel" type="color" value="#000000" style="width:75px;height:32px;"
+         onchange="fontColor=this.value;">
+      </span>
+    </div>
+
+    <div id="changeOptions">
+      <input type="button" onclick="undo()" value="undo">
+      <input type="button" onclick="clean(\'all\')" value="clear all">
+      <input type="button" onclick="clean(\'text\')" value="clear text">
+      <input type="button" onclick="clean(\'lines\')" value="clear lines">
+    </div>
+
+    <div id="scoring">
+      <span id="courseNum">Course: <span id="courseValue" class="rightWrap">{{course}}</span></span>
+      <span id="assignNum">Assignment: <span id="assignValue" class="rightWrap">{{assignment}}</span></span>
+      <span id="pageNum">Page: <span id="pageValue" class="rightWrap">{{page}}</span></span>
+      <span id="studentName">UTLN: <span id="studentValue" class="rightWrap">{{student}}</span></span>
+
+      <div ng-show="hasScore">
+        <label for="score">Score:</label>
+        <span class="rightWrap">
+	  <input type="range" min="0" max="{{score}}" ng-value="{{score}}" id="score" step="1">
+	  <input type="number" ng-value="{{score}}" min="0" max="{{score}}" id="score_value" style="width: 50px;">
+	  out of {{score}}
+	  <input type="button" onclick="maxScore()" value="max">
+	</span>
+      </div>
+
+      <div ng-show="hasExtra">
+        <label for="exCredit">Extra credit:</label>
+        <span class="rightWrap">
+	  <input type="range" min="0" max="{{extra}}" ng-value="{{extra}}" id="exCredit" step="1">
+	  <input type="number" ng-value="{{extra}}" min="0" max="{{extra}}" id="exCredit_value" style="width: 50px;">
+	  max: {{extra}}
+	  <input type="button" onclick="maxExtra()" value="max">
+	</span>
+      </div>
+    </div>
+
+    <div id="searchOptions">
+      <label for="studentSearch">Search for student by UTLN</label>
+      <span class="rightWrap"><input type="text" style="width: 75px;" id="studentSearch">&emsp;<input type="button"
+                                                                                                      onclick="goSearch()"
+                                                                                                      value="search"></span>
+      <label for="pageSearch">Go to page</label>
+      <span class="rightWrap"><input type="number" min="1" style="width: 50px;" id="pageSearch">&emsp;<input
+        type="button" onclick="pageSearch()" value="go"></span>
+    </div>
+
+    <div id="saveOptions">
+      <input type="button" onclick="save()" value="save">
+      <input type="button" onclick="save(\'next\')" value="save and next">
+      <input type="button" onclick="save(\'close\')" value="save and exit">
+      <input type="button" onclick="skip(\'next\')" value="skip w/o saving">
+      <input type="button" onclick="skip(\'close\')" value="exit w/o saving">
+    </div>
+  </div>
+</div>
+<div id="cursor"></div>

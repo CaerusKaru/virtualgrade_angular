@@ -1,0 +1,14 @@
+<div ng-cloak="" layout="column">
+  <md-content class="md-padding" style="margin-top: -15px;">
+    <md-nav-bar md-theme="default" md-selected-nav-item="currentNavItem"
+                nav-bar-aria-label="courses available to select" md-no-ink="true">
+      <!--<md-nav-item ng-disabled="true" label="Select a course:"></md-tab>-->
+      <span class="md-padding">Select a course:</span>
+      <md-nav-item ng-repeat="course in courses | orderBy" name="{{course}}" md-nav-sref=".course({id: '{{course}}'})">
+        {{course}}
+      </md-nav-item>
+    </md-nav-bar>
+  </md-content>
+</div>
+
+<div ui-view="" layout="column" flex></div>

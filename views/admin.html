@@ -1,0 +1,25 @@
+<div ng-cloak="" layout="row" flex layout-padding="">
+  <md-sidenav class="md-sidenav-left"
+              md-component-id="left"
+              md-is-locked-open="true"
+              md-disable-backdrop
+              layout="column"
+              style="width: 165px;">
+    <md-toolbar>
+      <span flex></span>
+      <div class="md-toolbar-tools" layout="column" layout-align="center center">
+        <h1>Menus</h1>
+      </div>
+    </md-toolbar>
+    <md-list>
+      <md-list-item layout="row" flex md-no-ink ng-repeat="item in menu" ui-sref=".menu({menu: '{{item.state}}'})">
+        <md-item-content flex layout="column" layout-align="center center">
+          <span flex>{{item.name}}</span>
+        </md-item-content>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+  <md-content flex layout="column" layout-padding="">
+    <div flex layout="column" layout-align="top center" layout-fill="" ui-view=""></div>
+  </md-content>
+</div>

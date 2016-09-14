@@ -1,0 +1,43 @@
+<div ng-cloak="" flex layout="column" layout-fill="">
+  <md-content class="md-padding" layout="column">
+    <md-tabs class="md-primary" md-selected="selectedIndex" md-dynamic-height>
+      <md-tab id="create-pdf" flex md-on-select="setType('pdf')">
+        <md-tab-label>PDF</md-tab-label>
+        <md-tab-body>
+          <div flex class="md-padding">
+            <form name="pdf-creation">
+              <div layout="row" class="md-block">
+                <md-input-container>
+                  <input ng-model="page.name" required md-no-float placeholder="Assignment Name">
+                </md-input-container>
+              </div>
+              <div layout="row" class="md-block">
+                <md-input-container>
+                  <input ng-model="page.number" required min="1" md-no-float placeholder="# of pages" type="number">
+                </md-input-container>
+              </div>
+            </form>
+          </div>
+        </md-tab-body>
+      </md-tab>
+      <md-tab id="create-scorecard" md-on-select="setType('scorecard')">
+        <md-tab-label>Scorecard</md-tab-label>
+        <md-tab-body>
+          <div flex class="md-padding">
+            <form name="pdf-creation">
+              <div layout="row" class="md-block">
+                <md-input-container>
+                  <input ng-model="page.name" required md-no-float placeholder="Assignment Name">
+                </md-input-container>
+              </div>
+            </form>
+          </div>
+        </md-tab-body>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+  <div layout="row" class="md-padding">
+    <md-button class="md-raised md-primary" md-no-ink ng-click="click()">Create</md-button>
+    <span flex></span>
+  </div>
+</div>

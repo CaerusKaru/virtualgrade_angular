@@ -1,0 +1,17 @@
+<div ng-cloak="" layout="column">
+  <md-content class="md-padding">
+    <md-nav-bar class="md-primary" md-theme="default" md-selected-nav-item="currentNavItem"
+                nav-bar-aria-label="navigation links" md-no-ink="true">
+      <a ui-sref=".grades"><img src="images/logo.png" style="height: 13px; width: 93.5px;" class="md-padding"
+                                alt="logo image"/></a>
+      <md-nav-item md-nav-sref=".grades" name="grades">Grades</md-nav-item>
+      <md-nav-item md-nav-sref=".grading" ng-show="isGrader" name="grading">Grading</md-nav-item>
+      <md-nav-item md-nav-sref=".admin" ng-show="isAdmin" name="admin">Admin</md-nav-item>
+      <span flex></span>
+      <span class="md-padding">Logged in as: {{username}}</span>
+      <md-button ng-click="logOut()" class="md-primary">Not you?</md-button>
+    </md-nav-bar>
+  </md-content>
+</div>
+
+<div ui-view layout="column" flex></div>

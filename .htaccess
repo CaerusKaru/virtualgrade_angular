@@ -1,0 +1,12 @@
+AuthType Basic
+AuthName "VirtualGrade"
+AuthLDAPURL "ldaps://ldap.eecs.tufts.edu/ou=People,dc=eecs,dc=tufts,dc=edu?uid?sub?(objectClass=*)"
+AuthBasicProvider ldap
+AuthUserFile "/dev/null"
+require valid-user
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !index
+RewriteRule (.*) /~aplume01/virtualgrade/index.html [L]

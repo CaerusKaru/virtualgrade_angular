@@ -1,0 +1,26 @@
+<div ng-cloak="" class="md-padding">
+  <table ng-show="grades.length != 0">
+    <thead>
+    <tr>
+      <th>Assignment</th>
+      <th>Grade</th>
+      <th>Out of</th>
+      <th>Percent</th>
+      <th>Comments</th>
+      <th>Graded by</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="grade in grades">
+      <td>{{grade.name}}</td>
+      <td>{{grade.grade}}</td>
+      <td>{{grade.max}}</td>
+      <td>{{grade.percent}}</td>
+      <td ng-if="grade.type === 'pdf'"><a href="" ng-click="submitPDF(grade.name)">{{grade.type}}</a></td>
+      <td ng-if="grade.type === 'scorecard'"><a href="" ng-click="submitCard()">{{grade.type}}</a></td>
+      <td ng-if="grade.type === 'none'">{{grade.type}}</td>
+      <td>{{grade.gradedby}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
